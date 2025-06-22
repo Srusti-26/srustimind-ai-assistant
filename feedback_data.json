@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2025-06-21 22:11:11",
+    "function_type": "summary",
+    "prompt": "Summarize the following text concisely:\n\nArtificial Intelligence (AI) is transforming the way we live and work. From virtual assistants that help manage our schedules to advanced algorithms that detect diseases early, AI is deeply embedded in modern life. While it offers numerous benefits like automation and improved decision-making, it also raises ethical concerns about privacy, job displacement, and accountability. As technology evolves, balancing innovation with responsibility will be crucial for a sustainable AI-driven future.",
+    "response": "<s> \nArtificial Intelligence (AI) has transformed the way we live and work, from virtual assistants that help manage our schedules to advanced algorithms that detect diseases early. However, it also raises concerns about privacy, job displacement, and accountability. As technology continues to evolve, it is essential to balance innovation with responsibility to create a sustainable AI-driven future.</s>",
+    "rating": 5,
+    "comments": "no you are really good"
+  },
+  {
+    "timestamp": "2025-06-21 22:17:15",
+    "function_type": "creative",
+    "prompt": "Generate a creative a good story that explores detective in a unique and interesting way.",
+    "response": "<s> \nDetective Jackson had always been a curious and adventurous person. He loved to solve mysteries and puzzles, and he had an uncanny ability to find clues that others had overlooked. However, he had never encountered anything like this.\n\nOne sunny afternoon, Jackson was on his usual rounds, patrolling the streets of the city. He spotted a strange-looking man standing outside a rundown building. The man was wearing a black hoodie and dark glasses, and he was carrying a small bag. Jackson approached the man, who turned out to be a brilliant scientist named Dr. Jameson.\n\nDr. Jameson explained that he had been working on a new experiment and had found a strange object in the basement. He had tried to keep it hidden, but Jackson had discovered it. Dr. Jameson was furious, and he accused Jackson of stealing his discovery.\n\nJackson insisted that he had found the object by accident, and he was innocent. Dr. Jameson was not convinced, and he demanded that Jackson turn himself in. Jackson refused, and the two men started a heated argument.\n\nJust as Jackson was about to leave, he heard a strange noise coming from the basement. He followed the sound and found Dr. Jameson's assistant, Dr. Smith, lying on the ground, unconscious. Jackson realized that the experiment had gone wrong, and Dr. Smith had been exposed to dangerous chemicals.\n\nJackson knew he had to find a way to save Dr. Smith and bring Dr. Jameson to justice. He searched the building and found a hidden room containing a device that could reverse the effects of the experiment. He took the device and ran to the police station, where he handed it over to the police.\n\nThe police arrested Dr. Jameson and charged him with stealing and experimenting on a living being. Jackson was hailed as a hero, and Dr. Jameson was sentenced to prison for his crimes.\n\nJackson returned to his detective work, using his unique perspective and uncanny ability to find clues. He solved cases that others had overlooked, and he always found the solution that no one else could. Jackson was a detective like no other, and his story was the perfect example of the unpredictable and fascinating world of detective fiction.</s>",
+    "rating": 5,
+    "comments": ""
+  },
+  {
+    "timestamp": "2025-06-22 00:53:20",
+    "function_type": "question",
+    "prompt": "hi who is the prime minister of india",
+    "response": "<s> \nThe Prime Minister of India is Narendra Modi.</s>",
+    "rating": 5,
+    "comments": ""
+  },
+  {
+    "timestamp": "2025-06-22 00:53:29",
+    "function_type": "question",
+    "prompt": "can u explain what is photosythesis",
+    "response": "<s> \nPhotosythesis is a process in which photosynthesis takes place in the presence of light. It is the process by which plants and other organisms convert light energy into chemical energy through the process of photosynthesis. In photosythesis, the light energy from the sun is used to split water molecules into oxygen and hydrogen gas, which are then used by the plant to make glucose (a type of sugar). This process is essential for the growth and survival of plants and other organisms.</s>",
+    "rating": 5,
+    "comments": ""
+  },
+  {
+    "timestamp": "2025-06-22 09:09:40",
+    "function_type": "question",
+    "prompt": "who is the prime minister of india",
+    "response": "<s> \nThe current Prime Minister of India is Narendra Modi.</s>",
+    "rating": 5,
+    "comments": "finally you are working\ud83e\udd79\ud83e\udd79"
+  },
+  {
+    "timestamp": "2025-06-22 09:12:22",
+    "function_type": "question",
+    "prompt": "who is the prime minister of india",
+    "response": "<s> \nThe Prime Minister of India is Narendra Modi.</s>",
+    "rating": 5,
+    "comments": ""
+  }
+]
