@@ -27,17 +27,8 @@ ENV/
 
 # Environment Variables
 .env
-
-# AI Model Cache
-.cache/
-models/
-*.bin
-*.safetensors
-
-# Data Files
-conversation_history_*.json
-feedback_data.json
-*.log
+.env.local
+.env.production
 
 # IDE
 .vscode/
@@ -49,5 +40,28 @@ feedback_data.json
 .DS_Store
 Thumbs.db
 
-# Jupyter
-.ipynb_checkpoints/
+# Logs
+*.log
+logs/
+
+# Model files (too large for git)
+*.bin
+*.safetensors
+models/
+
+# Temporary files
+temp/
+tmp/
+uploads/
+*.tmp
+
+# Database
+*.db
+*.sqlite3
+
+# Feedback data (contains user data)
+feedback_data.json
+
+# API Keys (security)
+api_keys.txt
+secrets.txt

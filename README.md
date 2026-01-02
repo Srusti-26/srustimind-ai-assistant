@@ -1,139 +1,172 @@
+# SRUSTI AI Assistant
 
-# SrustiMind – Local AI Assistant (PyTorch + Flask)
+Flask-based AI assistant with TinyLlama backend, smart API fallbacks, and comprehensive features.
 
-SrustiMind is a beginner-friendly, locally running AI assistant for question answering, text summarization, and creative writing. It uses PyTorch with Hugging Face Transformers and exposes both a terminal interface and a simple Flask web UI. No paid APIs are required; it runs fully offline.&#x20;
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![Flask](https://img.shields.io/badge/Flask-2.3+-green)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Here’s how SrustiMind looks in action:
+## 🚀 Features
 
-![SrustiMind UI](screenshot.png)
+![Chat Interface](images/chat.jpeg)
 
-## Features
+### Core AI Capabilities
+- **Question Answering** - Comprehensive answers to any question
+- **Creative Writing** - Complete stories, poems, essays
+- **Text Summarization** - Detailed summaries without limits
+- **Paraphrasing** - Full text rephrasing
+- **Sentiment Analysis** - VADER + TextBlob analysis
 
-* Question answering, concise summarization, and creative content generation (story/poem/essay).&#x20;
-* Local, offline model execution with PyTorch; no OpenAI API usage.&#x20;
-* Web UI with tabs for Chat, Summarize, Creative, and History; progress bar for model loading; star-based feedback; downloadable conversation history.&#x20;
-* In-app feedback collection stored as structured JSON (`feedback_data.json`) for later analysis.
+![Creative Writing](images/creative%20(2).jpeg)
 
-## Architecture
+### Smart API Integration
+- **Multi-API Fallback** - Groq → Ollama → HuggingFace → Local
+- **Instant Responses** - 2-3 seconds with API keys
+- **Offline Capable** - Works without internet
+- **Production Ready** - Comprehensive error handling
 
-Three-tier design:
+![Paraphrase Feature](images/paraphrase.jpeg)
 
-* **Frontend:** HTML/CSS/JavaScript (Bootstrap, Font Awesome)
-* **Backend:** Flask (Python)
-* **AI Engine:** TinyLlama-1.1B via Hugging Face Transformers + PyTorch
-  This layout, model choice, and stack are documented in your project summary.&#x20;
+## 📊 Performance
 
-### Components in Code
+| Feature | Response Time | Quality |
+|---------|---------------|---------|
+| Groq API | 2-3 seconds | ⭐⭐⭐⭐⭐ |
+| Ollama Local | 3-5 seconds | ⭐⭐⭐⭐⭐ |
+| HuggingFace | 5-10 seconds | ⭐⭐⭐⭐ |
+| Local TinyLlama | 20-30 seconds | ⭐⭐⭐⭐ |
 
-* `main.py`: Loads the TinyLlama chat model, handles prompting, generation, conversation history, and feedback persistence; includes CPU/GPU detection and safe fallbacks.&#x20;
-* `app.py`: Flask server with background model loading and JSON endpoints for generation, feedback, history, and health/status.&#x20;
-* `templates/index.html`: Bootstrap UI with tabs, progress bar, Markdown rendering (with strikethrough disabled to avoid unwanted formatting), feedback widget, and history viewer.&#x20;
+## 🛠️ Quick Setup
 
-## Tech Stack
+### Prerequisites
+- Python 3.9+
+- 4GB+ RAM
+- Git
 
-* **Language/Runtime:** Python
-* **Core Libraries:** PyTorch, Transformers, Flask, tqdm, colorama&#x20;
-* **Model:** `TinyLlama/TinyLlama-1.1B-Chat-v1.0` (via Transformers)&#x20;
-* **Frontend:** HTML, Bootstrap 5, Font Awesome, Marked.js (Markdown parsing)&#x20;
-* **Data Storage:** Local JSON files for feedback and (optional) saved histories&#x20;
-
-## Project Structure
-
-```
-SrustiMind/
-├─ main.py                   # CLI assistant (model load, generation, feedback)
-├─ app.py                    # Flask web server and API
-├─ templates/
-│  └─ index.html             # Web UI (Bootstrap + JS)
-├─ static/                   # (optional) Static assets if added later
-├─ screenshot.png            # Project screenshot
-├─ feedback_data.json        # Created at runtime for feedback persistence
-├─ README.md                 # This file
-└─ LICENSE                   # MIT (as per project summary)
-```
-
-Notes: `feedback_data.json` is created/updated at runtime by `main.py` and the Flask API feedback route.&#x20;
-
-## Getting Started
-
-### 1) Set up Python environment
-
+### Installation
 ```bash
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# macOS/Linux
-source venv/bin/activate
+git clone https://github.com/yourusername/srusti-ai-assistant.git
+cd srusti-ai-assistant
+pip install -r requirements.txt
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env and add your API keys
 ```
 
-Install dependencies:
+### Configuration
+1. Copy `.env` file and add your API keys:
+   ```bash
+   GROQ_API_KEY=your_actual_groq_api_key
+   SECRET_KEY=your_secure_random_key
+   ```
 
+2. Run the application:
+   ```bash
+   python app.py
+   ```
+
+Access at: http://localhost:5000
+
+![Summarize Feature](images/summarize%20(2).jpeg)
+
+### Optional: Fast API Setup
 ```bash
-pip install torch transformers flask tqdm colorama
+# Groq (Fastest - 2-3 seconds)
+export GROQ_API_KEY=your_key_here
+
+# Ollama (Local - 3-5 seconds)
+ollama pull llama3.2:1b
+ollama serve
 ```
 
-(You can add these to `requirements.txt` if you prefer.)
+## 📁 Project Structure
 
-### 2) Run the CLI (terminal) app
+```
+srusti-ai-assistant/
+├── app.py                 # Main Flask application
+├── requirements.txt       # Dependencies
+├── README.md             # This file
+├── LICENSE               # MIT License
+├── .gitignore           # Git ignore rules
+├── Procfile             # Heroku deployment
+├── runtime.txt          # Python version
+├── deploy.sh            # Deployment script
+├── templates/
+│   └── index.html       # Web interface
+├── static/
+│   └── voice-fallback.js
+├── images/              # README screenshots
+└── .github/
+    └── workflows/
+        └── deploy.yml   # CI/CD pipeline
+```
 
+## 🚢 Deployment Options
+
+### Heroku
 ```bash
-python main.py
+heroku create your-app-name
+heroku config:set GROQ_API_KEY=your_groq_api_key
+heroku config:set SECRET_KEY=your_secure_secret_key
+git push heroku main
 ```
 
-The CLI lets you choose between answer, summarize, and creative modes, keeps a local conversation history, and saves feedback to `feedback_data.json`.&#x20;
+### Railway/Render
+- Connect GitHub repository
+- Set environment variables in dashboard:
+  - `GROQ_API_KEY`
+  - `SECRET_KEY`
+- Auto-deploy on push
 
-### 3) Run the web app
-
+### Local Production
 ```bash
-python app.py
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
 
-Then visit:
+![History Feature](images/history.jpeg)
 
+## 🔧 Configuration
+
+### Environment Variables
+```bash
+SECRET_KEY=your-secret-key
+GROQ_API_KEY=your-groq-key
+HF_API_KEY=your-huggingface-token
 ```
-http://localhost:5000
-```
 
-The web server loads the model in a background thread; you can query `/model_status` for progress. Once loaded, use the Chat/Summarize/Creative tabs, leave star ratings with optional comments, browse history, download it as JSON, or clear it.&#x20;
+## 📈 API Endpoints
 
-## API Endpoints (JSON)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Main interface |
+| POST | `/generate` | Generate responses |
+| POST | `/paraphrase` | Paraphrase text |
+| POST | `/sentiment` | Analyze sentiment |
+| POST | `/export_pdf` | Export as PDF |
+| GET | `/health` | Health check |
 
-* `GET /model_status` – Background model-loading status (progress/messages).&#x20;
-* `POST /generate` – `{ prompt, function_type: "question"|"summary"|"creative" }` → `{ response }`.&#x20;
-* `POST /feedback` – Store `{ function_type, prompt, response, rating, comments }` into `feedback_data.json`.&#x20;
-* `GET /history` – Return session-scoped conversation history.&#x20;
-* `POST /clear_history` – Clear session history.&#x20;
-* `GET /download_history` – Download session history JSON.&#x20;
-* `GET /health` – Simple health check with timestamp and model status.&#x20;
+## 🔒 Security Features
 
-## Prompting Strategy (Built-in)
+- Input validation and sanitization
+- Rate limiting ready
+- Error handling without data exposure
+- Secure session management
+- Environment-based configuration
 
-The app uses role-appropriate system prompts for each task type (factual Q\&A, summarization, and creative writing), which keeps outputs concise for Q\&A, compressive for summaries, and imaginative for creative tasks.&#x20;
+## 📝 License
 
-## Testing Summary
+MIT License - see [LICENSE](LICENSE) file.
 
-Manual tests covered factual Q\&A, summarization, creative generation, and the feedback workflow, with stable performance and correct JSON logging of ratings/comments. The testing period was **June 21–22, 2025**, and the project was marked **Functionally Complete** for user testing and feature expansion.&#x20;
+## 🤝 Contributing
 
-## Roadmap
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
 
-Planned enhancements include speech-to-text input, multi-language support, LoRA-based fine-tuning using feedback, and a RAG module for document Q\&A.&#x20;
+---
 
-## Troubleshooting
-
-* Slow startup: GPU is used if available; otherwise the model falls back to CPU and loads/generates more slowly.&#x20;
-* Markdown quirks: The UI sanitizes strikethrough to avoid unintended `<del>` rendering in model outputs.&#x20;
-* Template errors: Ensure `templates/index.html` exists before starting Flask.&#x20;
-
-## Contributing
-
-Issues and pull requests are welcome. Please discuss major changes in an issue first.
-
-## License
-
-MIT License (as declared in the project summary).&#x20;
-
-## Acknowledgments
-
-Built with TinyLlama, Transformers, PyTorch, and Flask.&#x20;
-
-
+**Made with ❤️ for the AI community**
